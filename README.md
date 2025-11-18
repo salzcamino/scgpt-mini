@@ -37,6 +37,7 @@ pip install -e .
 - **Phase 3**: `examples/02_training.py` - MLM pretraining
 - **Phase 4**: `examples/03_embedding.py` - Cell embedding extraction and visualization
 - **Phase 5**: `examples/04_annotation.py` - Cell type annotation
+- **Phase 6**: `examples/end_to_end_complete.py` - Complete workflow from start to finish
 
 ### Basic Usage
 
@@ -142,11 +143,12 @@ scgpt-mini/
 - [x] Unit tests
 - [x] Example script
 
-### 🚧 Phase 6: Integration & Testing (TODO)
-- [ ] End-to-end examples
-- [ ] Tutorial notebooks
-- [ ] Comprehensive test suite
-- [ ] Documentation
+### ✅ Phase 6: Integration & Testing (COMPLETE)
+- [x] End-to-end complete workflow example
+- [x] Tutorial notebook (Preprocessing)
+- [x] Integration tests for full workflows
+- [x] Troubleshooting guide
+- [x] Documentation updates
 
 ### 🚧 Phase 7: Package & Distribution (TODO)
 - [ ] Package configuration
@@ -181,8 +183,10 @@ See `requirements.txt` for full list.
 ## Documentation
 
 - **[CLAUDE.md](CLAUDE.md)**: Detailed implementation plan with all phases
+- **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)**: Common issues and solutions
 - **[examples/](examples/)**: Usage examples for each phase
-- **[tests/](tests/)**: Unit tests for all components
+- **[notebooks/](notebooks/)**: Interactive tutorial notebooks
+- **[tests/](tests/)**: Unit and integration tests
 
 ## Comparison with scGPT
 
