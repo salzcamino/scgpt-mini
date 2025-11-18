@@ -7,5 +7,29 @@ This module contains the transformer model components:
 - Main transformer model
 """
 
-# Will be implemented in Phase 2
-__all__ = []
+from scgpt_mini.model.encoder import (
+    GeneEncoder,
+    ContinuousValueEncoder,
+    CategoryValueEncoder,
+    PositionalEncoding,
+)
+from scgpt_mini.model.decoder import (
+    ExpressionDecoder,
+    ClassificationDecoder,
+    BinnedExpressionDecoder,
+)
+from scgpt_mini.model.transformer import TransformerModel
+
+__all__ = [
+    # Encoders
+    "GeneEncoder",
+    "ContinuousValueEncoder",
+    "CategoryValueEncoder",
+    "PositionalEncoding",
+    # Decoders
+    "ExpressionDecoder",
+    "ClassificationDecoder",
+    "BinnedExpressionDecoder",
+    # Main model
+    "TransformerModel",
+]

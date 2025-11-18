@@ -100,11 +100,15 @@ scgpt-mini/
 - [x] Unit tests
 - [x] Example script
 
-### 🚧 Phase 2: Core Model Architecture (TODO)
-- [ ] Gene and value encoders
-- [ ] Expression decoder
-- [ ] Transformer model
-- [ ] Model configuration
+### ✅ Phase 2: Core Model Architecture (COMPLETE)
+- [x] Gene and value encoders
+- [x] Expression decoder (continuous and binned)
+- [x] Classification decoder
+- [x] Transformer model
+- [x] Model configuration
+- [x] Checkpoint save/load
+- [x] Unit tests
+- [x] Example script
 
 ### 🚧 Phase 3: Training Infrastructure (TODO)
 - [ ] Loss functions
