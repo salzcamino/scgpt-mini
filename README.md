@@ -16,16 +16,35 @@ A miniature, educational version of [scGPT](https://github.com/bowang-lab/scGPT)
 
 ## Installation
 
+### Option 1: Install from Source (Recommended for Development)
+
 ```bash
 # Clone the repository
 git clone https://github.com/yourusername/scgpt-mini.git
 cd scgpt-mini
 
-# Install dependencies
-pip install -r requirements.txt
-
 # Install in development mode
 pip install -e .
+
+# Or install with extras
+pip install -e ".[dev,viz]"  # Development + visualization dependencies
+```
+
+### Option 2: Install from Wheel (Coming Soon)
+
+```bash
+# Will be available after PyPI release
+pip install scgpt-mini
+
+# With optional dependencies
+pip install "scgpt-mini[viz]"  # Include visualization tools
+```
+
+### Option 3: Install from Distribution Files
+
+```bash
+# If you have the distribution files
+pip install dist/scgpt_mini-0.1.0-py3-none-any.whl
 ```
 
 ## Quick Start
@@ -150,10 +169,16 @@ scgpt-mini/
 - [x] Troubleshooting guide
 - [x] Documentation updates
 
-### 🚧 Phase 7: Package & Distribution (TODO)
-- [ ] Package configuration
-- [ ] Distribution files
-- [ ] Documentation site (optional)
+### ✅ Phase 7: Package & Distribution (COMPLETE)
+- [x] Package configuration (setup.py, pyproject.toml)
+- [x] MANIFEST.in for data files
+- [x] Requirements files (requirements.txt, requirements-dev.txt)
+- [x] MIT License
+- [x] .gitignore for clean repository
+- [x] Distribution packages (wheel and sdist)
+- [x] Installation instructions
+- [ ] PyPI publication (optional - ready when needed)
+- [ ] Documentation site (optional - can be added later)
 
 ## Model Specifications
 
@@ -203,6 +228,42 @@ See `requirements.txt` for full list.
 - Multi-omic integration
 - Advanced tasks (GRN inference, perturbation prediction)
 - Heavy dependencies (scvi-tools, torchtext, wandb)
+
+## Building and Distribution
+
+### For Developers
+
+Build distribution packages:
+```bash
+# Install build tools
+pip install build twine
+
+# Build wheel and source distribution
+python -m build
+
+# Check the built packages
+ls -l dist/
+
+# (Optional) Upload to Test PyPI
+python -m twine upload --repository testpypi dist/*
+
+# (Optional) Upload to PyPI
+python -m twine upload dist/*
+```
+
+### Package Structure
+
+The package includes:
+- All Python modules from `scgpt_mini/`
+- Default vocabulary and configuration files
+- Documentation (README, LICENSE, CLAUDE.md, TROUBLESHOOTING.md)
+- Tests excluded from distribution (use source for testing)
+
+### Version Management
+
+Update version in:
+- `setup.py` (version parameter)
+- `pyproject.toml` ([project] version)
 
 ## Contributing
 

@@ -1,0 +1,41 @@
+# Include documentation
+include README.md
+include LICENSE
+include CLAUDE.md
+include TROUBLESHOOTING.md
+
+# Include requirements
+include requirements.txt
+include requirements-dev.txt
+
+# Include configuration files
+include pyproject.toml
+include setup.py
+
+# Include package data
+recursive-include scgpt_mini *.json
+recursive-include scgpt_mini *.yaml
+recursive-include scgpt_mini *.yml
+
+# Include examples (optional, can be large)
+# recursive-include examples *.py
+
+# Exclude unnecessary files
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+recursive-exclude * .DS_Store
+recursive-exclude * .git*
+exclude .gitignore
+
+# Exclude test files from distribution
+recursive-exclude tests *
+exclude tests
+
+# Exclude notebooks from distribution (can be large)
+recursive-exclude notebooks *
+exclude notebooks
+
+# Exclude build artifacts
+recursive-exclude dist *
+recursive-exclude build *
+recursive-exclude *.egg-info *

@@ -1,0 +1,33 @@
+# Include all base requirements
+-r requirements.txt
+
+# Testing
+pytest>=7.0.0
+pytest-cov>=3.0.0
+pytest-xdist>=2.5.0  # Parallel testing
+psutil>=5.8.0  # For memory tests
+
+# Code Quality
+black>=22.0.0
+flake8>=4.0.0
+isort>=5.10.0
+mypy>=0.950
+
+# Documentation
+sphinx>=4.0.0
+sphinx-rtd-theme>=1.0.0
+nbsphinx>=0.8.0
+sphinx-autodoc-typehints>=1.18.0
+
+# Jupyter
+jupyter>=1.0.0
+jupyterlab>=3.0.0
+ipywidgets>=7.6.0
+
+# Build and Distribution
+build>=0.7.0
+twine>=4.0.0
+wheel>=0.37.0
+
+# Development Tools
+pre-commit>=2.15.0
