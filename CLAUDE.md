@@ -58,17 +58,17 @@
 
 | Component | scGPT (default) | scGPT-mini |
 |-----------|-----------------|------------|
-| Embedding dimension | 128 | 64 |
+| Embedding dimension | 128 | 32 |
 | Transformer layers | 4 | 2-3 |
 | Attention heads | 4 | 2 |
-| Hidden dimension | 512 | 128 |
+| Hidden dimension | 512 | 64 |
 | Max genes (HVGs) | 1200 | 500-1000 |
 | Gene vocabulary | ~19,000 | ~5,000-10,000 |
 | Expression bins | 51 | 51 |
 | Pretrain data | 33M cells | 10K-50K cells |
-| Model parameters | ~2-5M | ~200-500K |
-| Memory (inference) | ~2-4GB GPU | <2GB RAM |
-| Memory (training) | ~8-16GB GPU | <8GB RAM |
+| Model parameters | ~2-5M | ~50-150K |
+| Memory (inference) | ~2-4GB GPU | <1GB RAM |
+| Memory (training) | ~8-16GB GPU | <4GB RAM |
 
 ---
 
@@ -76,7 +76,7 @@
 
 ### Core Dependencies (Minimal)
 ```
-python >= 3.8
+python >= 3.8, <=3.12    # Avoid 3.13+ due to potential scanpy conflicts
 torch >= 1.13.0          # PyTorch (CPU version)
 numpy >= 1.20.0
 pandas >= 1.3.0
@@ -444,10 +444,10 @@ Implement the transformer model architecture with gene/value encoders and expres
 **Recommended Hyperparameters** (scGPT-mini):
 ```python
 MODEL_CONFIG = {
-    "d_model": 64,           # Embedding dimension
+    "d_model": 32,           # Embedding dimension
     "nhead": 2,              # Number of attention heads
     "num_layers": 2,         # Number of transformer layers
-    "d_hid": 128,            # Hidden dimension in FFN
+    "d_hid": 64,             # Hidden dimension in FFN
     "dropout": 0.1,          # Dropout rate
     "n_bins": 51,            # Number of expression bins
     "max_seq_len": 1001,     # Max genes + 1 for CLS
@@ -1221,33 +1221,18 @@ Note: Phases 4 and 5 can run concurrently, saving 1 session.
 
 ---
 
-## Questions for Next Session
+## Confirmed Specifications
 
-Before starting Phase 1, consider:
+**✅ Decisions Made:**
 
-1. **Dataset**: Which dataset should we use for initial testing?
-   - PBMC 3k (recommended, ~3K cells)
-   - PBMC 10k (~10K cells)
-   - Custom dataset?
-
-2. **Model size**: Confirm model hyperparameters
-   - d_model: 32, 64, or 128?
-   - num_layers: 2 or 3?
-   - n_hvgs: 500, 1000, or more?
-
-3. **Dependencies**: Any constraints on libraries?
-   - Prefer pure PyTorch vs using scanpy/anndata?
-   - Any libraries to avoid?
-
-4. **Output format**: How to store results?
-   - AnnData objects (standard in single-cell field)
-   - Plain numpy/pandas
-   - Both?
-
-5. **Testing strategy**: Level of rigor?
-   - Basic smoke tests
-   - Comprehensive unit tests
-   - Integration tests
+1. **Dataset**: PBMC 3k (~2,700 cells) from scanpy
+2. **Model size**:
+   - d_model: **32** (compact for educational use)
+   - num_layers: 2-3
+   - n_hvgs: 500-1000
+3. **Python version**: 3.8-3.12 (avoid 3.13+ due to scanpy conflicts)
+4. **Output format**: AnnData objects (standard in single-cell field)
+5. **Testing strategy**: Comprehensive unit tests with >70% coverage
 
 ---
 
