@@ -30,7 +30,15 @@ pip install -e .
 
 ## Quick Start
 
-See `examples/00_preprocessing_example.py` for a complete walkthrough of Phase 1 functionality:
+### Example Scripts
+
+- **Phase 1**: `examples/00_preprocessing_example.py` - Data preprocessing and tokenization
+- **Phase 2**: `examples/01_model_creation.py` - Model architecture
+- **Phase 3**: `examples/02_training.py` - MLM pretraining
+- **Phase 4**: `examples/03_embedding.py` - Cell embedding extraction and visualization
+- **Phase 5**: `examples/04_annotation.py` - Cell type annotation
+
+### Basic Usage
 
 ```python
 import scanpy as sc
@@ -120,15 +128,19 @@ scgpt-mini/
 - [x] Unit tests
 - [x] Example training script
 
-### 🚧 Phase 4: Cell Embedding Generation (TODO)
-- [ ] Embedding extraction
-- [ ] Visualization utilities
-- [ ] Embedding quality metrics
+### ✅ Phase 4: Cell Embedding Generation (COMPLETE)
+- [x] Embedding extraction (CLS, mean, max pooling)
+- [x] Visualization utilities (UMAP, t-SNE)
+- [x] Embedding quality metrics (silhouette, ARI, k-NN accuracy)
+- [x] Unit tests
+- [x] Example script
 
-### 🚧 Phase 5: Cell Type Annotation (TODO)
-- [ ] Fine-tuning for classification
-- [ ] Cell type prediction
-- [ ] Evaluation metrics
+### ✅ Phase 5: Cell Type Annotation (COMPLETE)
+- [x] Fine-tuning for classification
+- [x] Cell type prediction with confidence scores
+- [x] Evaluation metrics and reporting
+- [x] Unit tests
+- [x] Example script
 
 ### 🚧 Phase 6: Integration & Testing (TODO)
 - [ ] End-to-end examples
