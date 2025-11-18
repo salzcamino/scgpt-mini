@@ -1,0 +1,30 @@
+{
+  "model_name": "scGPT-mini-default",
+  "description": "Default configuration for scGPT-mini model",
+  "d_model": 32,
+  "nhead": 2,
+  "num_layers": 2,
+  "d_hid": 64,
+  "dropout": 0.1,
+  "n_bins": 51,
+  "max_seq_len": 1001,
+  "value_mode": "continuous",
+  "use_positional_encoding": false,
+  "activation": "gelu",
+  "norm_first": true,
+  "explicit_zero_prob": false,
+  "notes": {
+    "d_model": "Embedding dimension (32 for compact model)",
+    "nhead": "Number of attention heads (must divide d_model)",
+    "num_layers": "Number of transformer layers",
+    "d_hid": "Hidden dimension in feedforward network",
+    "dropout": "Dropout rate",
+    "n_bins": "Number of expression bins (for binned mode)",
+    "max_seq_len": "Maximum sequence length (1000 genes + CLS token)",
+    "value_mode": "Expression encoding mode: 'continuous' or 'binned'",
+    "use_positional_encoding": "Whether to add positional encoding (often not needed for gene expression)",
+    "activation": "Activation function in transformer: 'relu' or 'gelu'",
+    "norm_first": "Use pre-LN (true) or post-LN (false). Pre-LN is more stable",
+    "explicit_zero_prob": "Model zero expression separately (useful for sparse data)"
+  }
+}
