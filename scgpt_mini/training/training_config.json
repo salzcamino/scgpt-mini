@@ -1,0 +1,76 @@
+{
+  "config_name": "scGPT-mini-default-training",
+  "description": "Default training configuration for scGPT-mini",
+
+  "optimizer": {
+    "type": "AdamW",
+    "lr": 1e-4,
+    "weight_decay": 0.01,
+    "betas": [0.9, 0.999],
+    "eps": 1e-8
+  },
+
+  "training": {
+    "num_epochs": 20,
+    "batch_size": 32,
+    "gradient_clip": 1.0,
+    "eval_every": 1,
+    "save_every": 5,
+    "log_interval": 10,
+    "early_stopping_patience": null
+  },
+
+  "scheduler": {
+    "type": null,
+    "warmup_steps": 100,
+    "notes": "Options: null, 'linear_warmup', 'cosine', 'step'"
+  },
+
+  "loss": {
+    "mlm_weight": 1.0,
+    "cls_weight": 0.5,
+    "zero_prob_weight": 0.1,
+    "use_zero_prob": false
+  },
+
+  "data": {
+    "mask_ratio": 0.15,
+    "max_seq_len": 1001,
+    "value_mode": "continuous",
+    "train_split": 0.8,
+    "val_split": 0.1,
+    "test_split": 0.1
+  },
+
+  "hardware": {
+    "device": "cpu",
+    "num_workers": 0,
+    "pin_memory": false
+  },
+
+  "notes": {
+    "optimizer": {
+      "lr": "Learning rate (1e-4 is a good default for AdamW)",
+      "weight_decay": "L2 regularization weight (0.01 for AdamW)",
+      "betas": "Adam beta parameters"
+    },
+    "training": {
+      "num_epochs": "20 epochs should be enough for small datasets",
+      "batch_size": "32 is laptop-friendly, increase if more memory available",
+      "gradient_clip": "Prevents gradient explosion (1.0 is standard)",
+      "eval_every": "Evaluate every N epochs",
+      "save_every": "Save checkpoint every N epochs",
+      "early_stopping_patience": "null = disabled, or number of epochs"
+    },
+    "loss": {
+      "mlm_weight": "Weight for masked language modeling loss",
+      "cls_weight": "Weight for classification loss (if using)",
+      "zero_prob_weight": "Weight for explicit zero probability loss",
+      "use_zero_prob": "Whether to model zero expression separately"
+    },
+    "data": {
+      "mask_ratio": "Fraction of tokens to mask (0.15 = 15%)",
+      "value_mode": "'continuous' or 'binned'"
+    }
+  }
+}

@@ -110,11 +110,15 @@ scgpt-mini/
 - [x] Unit tests
 - [x] Example script
 
-### 🚧 Phase 3: Training Infrastructure (TODO)
-- [ ] Loss functions
-- [ ] Training metrics
-- [ ] Training loop
-- [ ] Checkpointing
+### ✅ Phase 3: Training Infrastructure (COMPLETE)
+- [x] Loss functions (MSE, MAE, cross-entropy, combined)
+- [x] Training metrics (MSE, MAE, Pearson, classification)
+- [x] Training loop with Trainer class
+- [x] Checkpointing and model persistence
+- [x] Learning rate scheduling support
+- [x] Early stopping support
+- [x] Unit tests
+- [x] Example training script
 
 ### 🚧 Phase 4: Cell Embedding Generation (TODO)
 - [ ] Embedding extraction
