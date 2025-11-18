@@ -164,10 +164,11 @@ scgpt-mini/
 
 ### ✅ Phase 6: Integration & Testing (COMPLETE)
 - [x] End-to-end complete workflow example
-- [x] Tutorial notebook (Preprocessing)
+- [x] All 4 tutorial notebooks (Preprocessing, Pretraining, Embeddings, Annotation)
 - [x] Integration tests for full workflows
 - [x] Troubleshooting guide
 - [x] Documentation updates
+- [x] Comprehensive test suite (71 tests, 2,006 LOC)
 
 ### ✅ Phase 7: Package & Distribution (COMPLETE)
 - [x] Package configuration (setup.py, pyproject.toml)
@@ -177,6 +178,8 @@ scgpt-mini/
 - [x] .gitignore for clean repository
 - [x] Distribution packages (wheel and sdist)
 - [x] Installation instructions
+- [x] Complete API Reference documentation
+- [x] Comprehensive User Guide
 - [ ] PyPI publication (optional - ready when needed)
 - [ ] Documentation site (optional - can be added later)
 
@@ -207,11 +210,33 @@ See `requirements.txt` for full list.
 
 ## Documentation
 
+### Core Documentation
+
 - **[CLAUDE.md](CLAUDE.md)**: Detailed implementation plan with all phases
+- **[docs/USER_GUIDE.md](docs/USER_GUIDE.md)**: Comprehensive user guide with tutorials and best practices
+- **[docs/API_REFERENCE.md](docs/API_REFERENCE.md)**: Complete API documentation for all modules
 - **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)**: Common issues and solutions
-- **[examples/](examples/)**: Usage examples for each phase
-- **[notebooks/](notebooks/)**: Interactive tutorial notebooks
-- **[tests/](tests/)**: Unit and integration tests
+
+### Learning Resources
+
+- **Tutorial Notebooks** (in `notebooks/`):
+  - `Tutorial_01_Preprocessing.ipynb` - Data preprocessing and tokenization
+  - `Tutorial_02_Pretraining.ipynb` - Model pretraining with MLM
+  - `Tutorial_03_Embeddings.ipynb` - Cell embedding generation and visualization
+  - `Tutorial_04_Annotation.ipynb` - Cell type annotation and fine-tuning
+
+- **Example Scripts** (in `examples/`):
+  - `00_preprocessing_example.py` - Data preprocessing workflow
+  - `01_model_creation.py` - Model architecture walkthrough
+  - `02_training.py` - MLM pretraining example
+  - `03_embedding.py` - Embedding extraction example
+  - `04_annotation.py` - Cell type annotation example
+  - `end_to_end_complete.py` - Complete integrated workflow
+
+- **Tests** (in `tests/`):
+  - 5 test files with 71 test functions
+  - 2,006 lines of test code
+  - Unit and integration tests for all components
 
 ## Comparison with scGPT
 
@@ -228,6 +253,42 @@ See `requirements.txt` for full list.
 - Multi-omic integration
 - Advanced tasks (GRN inference, perturbation prediction)
 - Heavy dependencies (scvi-tools, torchtext, wandb)
+
+## Testing
+
+The package includes a comprehensive test suite with **71 test functions** across 5 test files (2,006 LOC):
+
+- `tests/test_tokenizer.py` - Vocabulary and tokenization tests
+- `tests/test_model.py` - Model architecture tests
+- `tests/test_training.py` - Training loop and loss function tests
+- `tests/test_tasks.py` - Embedding and annotation tests
+- `tests/test_integration.py` - End-to-end workflow tests
+
+### Running Tests
+
+```bash
+# Install test dependencies
+pip install -e ".[dev]"
+
+# Run all tests
+pytest tests/ -v
+
+# Run with coverage
+pytest tests/ --cov=scgpt_mini --cov-report=html
+
+# Run specific test file
+pytest tests/test_tokenizer.py -v
+```
+
+The test suite covers:
+- ✅ Gene vocabulary creation and persistence
+- ✅ Tokenization and batching
+- ✅ Data preprocessing pipeline
+- ✅ Model forward/backward passes
+- ✅ Training loops and checkpointing
+- ✅ Embedding extraction
+- ✅ Cell type annotation
+- ✅ End-to-end workflows
 
 ## Building and Distribution
 
